@@ -17,16 +17,15 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-userSchema.pre("save", async function () {
-  if (!this.isModified("password")) return; // no next() needed
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-});
+
 
 
 // Method to check password
 userSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
+  if(this.password==enteredPassword){
+    return true;
+  }
+  return false;
 };
 
 export const User = mongoose.model("User", userSchema);

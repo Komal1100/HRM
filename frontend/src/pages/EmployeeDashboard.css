@@ -1,0 +1,152 @@
+/* --- EMPLOYEE THEME: DARK --- */
+:root[data-employee-theme='dark'] {
+  --admin-bg: #0d1117;
+  --admin-sidebar: #161b22;
+  --admin-card: rgba(22, 27, 34, 0.7);
+  --admin-accent: #1e2d24; /* Dark Greenish Tint */
+  --admin-text-main: #f0f6fc;
+  --admin-text-sub: #8b949e;
+  --admin-border: rgba(255, 255, 255, 0.1);
+  --admin-glow: #10b981; /* Employee Green */
+}
+
+/* --- EMPLOYEE THEME: LIGHT --- */
+:root[data-employee-theme='light'] {
+  --admin-bg: #f0fdf4; /* Very Light Green Tint */
+  --admin-sidebar: #ffffff;
+  --admin-card: #ffffff;
+  --admin-accent: #dcfce7; /* Light Green Tint */
+  --admin-text-main: #1f2937;
+  --admin-text-sub: #6b7280;
+  --admin-border: rgba(0, 0, 0, 0.08);
+  --admin-glow: #059669; /* Employee Green */
+}
+
+/* --- Shared Layout Fixes --- */
+/* Ensure the wrapper uses the variables correctly for both roles */
+.admin-wrapper.employee-theme {
+  background: var(--admin-bg);
+  color: var(--admin-text-main);
+}
+
+.employee-theme .brand-logo {
+  background: var(--admin-accent);
+  color: var(--admin-glow);
+}
+
+.employee-theme .nav-link.active {
+  background: var(--admin-accent);
+  color: var(--admin-glow); /* Active link is green for employee */
+}
+
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: var(--admin-bg);
+  color: var(--admin-text-main);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.admin-sidebar {
+  width: 280px;
+  background: var(--admin-sidebar);
+  border-right: 1px solid var(--admin-border);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-logo {
+  background: var(--admin-accent);
+  color: var(--admin-glow);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border: none;
+  background: transparent;
+  color: var(--admin-text-sub);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: 0.2s;
+}
+
+.nav-link.active, .nav-link:hover {
+  background: var(--admin-accent);
+  color: var(--admin-text-main);
+}
+
+.admin-sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--admin-border);
+  padding-top: 20px;
+}
+
+.admin-theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background: var(--admin-accent);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  color: var(--admin-text-main);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.admin-main { flex: 1; padding: 40px; overflow-y: auto; }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--admin-card);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid var(--admin-border);
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: var(--admin-text-main);
+  outline: none;
+}
+
+.mini-card {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.admin-glass-card {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.employee-table { width: 100%; border-collapse: collapse; }
+.employee-table th { 
+    text-align: left; 
+    color: var(--admin-text-sub); 
+    padding: 15px; 
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.table-row td { padding: 15px; border-bottom: 1px solid var(--admin-border); }
+
+.status-pill.on { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+.status-pill.off { background: rgba(248, 113, 113, 0.15); color: #f87171; }
